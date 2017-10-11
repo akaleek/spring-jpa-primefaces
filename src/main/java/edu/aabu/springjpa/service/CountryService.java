@@ -44,13 +44,13 @@ public class CountryService {
  }
  
  @Transactional
- public void addCountry(Country country) {
-  countryRepository.save(country);
+ public Country addCountry(Country country) {
+  return countryRepository.save(country);
  }
  
  @Transactional
- public void updateCountry(Country country) {
-  countryRepository.save(country);
+ public Country updateCountry(Country country) {
+     return countryRepository.save(country);
  
  }
  

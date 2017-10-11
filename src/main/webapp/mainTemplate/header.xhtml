@@ -1,0 +1,58 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <!--
+        Document   : footer
+        Created on : Sep 11, 2011, 9:02:36 AM
+        Author     : 2494
+    -->
+    <div class="firstRow">
+        <div class="lefthead">
+            <h:graphicImage url="/mainTemplate/img/title.png"/>
+        </div>
+        <div class="rthead">
+            <h:form>
+
+                <table>
+                    <tr>
+                        <td>
+                            <h:outputText  styleClass="txtSt" style="color: #deeeed !important" value=" #{loginUser.myName} "/>
+                        </td>
+                        <td>
+                            <h:outputText styleClass="txtSt" style="color: #deeeed !important" value=" | "/>
+                        </td>
+                        <td>
+                            <p:commandLink  styleClass="txtSt" action="#{loginUser.logOutUsr}"
+                                            style="text-decoration: none;  ">
+                                <h:outputText styleClass="txtSt" style="color: #deeeed !important;text-decoration: none;" value=" Logout "/>
+                            </p:commandLink>
+                        </td>
+                        <td>
+                            <h:outputText styleClass="txtSt" style="color: #deeeed !important;" value=" | "/>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+
+                </table>
+            </h:form>
+        </div>
+    </div>
+    <div style="width: 100%; text-align: center" >
+        <div style="margin: auto; width: 958px; z-index: 1;" >
+            <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="https://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="958" height="144" id="head0" align="middle" wmode="opaque">
+                <param name="allowScriptAccess" value="sameDomain" />
+                <param name="movie" value="#{facesContext.externalContext.requestContextPath}/mainTemplate/head0.swf" />
+                <param name="wmode" value="opaque"/>
+                <param name="quality" value="high" /><param name="bgcolor" value="#008080" />
+                <embed src="#{facesContext.externalContext.requestContextPath}/mainTemplate/head0.swf" quality="high" bgcolor="#008080" width="958" height="144" name="head0" align="middle"  allowScriptAccess="sameDomain" 
+                       type="application/x-shockwave-flash" pluginspage="https://www.macromedia.com/go/getflashplayer" wmode="transparent"/>
+            </object>
+        </div>
+    </div>
+</html>
+
+
+
+
+

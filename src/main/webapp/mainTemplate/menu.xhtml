@@ -1,0 +1,214 @@
+<html dir="rtl" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core" >
+   
+   <style>
+        /* ------------ Menu Classes --
+*/
+
+.iceMnuBar, .iceMnuBarVrt {
+    padding: 0;
+    margin: 0;
+    direction: rtl;
+    white-space: nowrap;
+    background-image: none;
+    background-color: #FCFCFC;
+     
+}
+
+.iceMnuBarItem, .iceMnuBarVrtItem {
+    border:none;
+    float: right;
+      width:250px;
+    white-space: nowrap;
+    background-color: #FCFCFC;
+    background-image: url('/relations/mainTemplate/img/bgline2.gif');
+}
+
+.iceMnuBarVrtItem {
+    float: none;
+}
+
+.iceMnuBarItem a, .iceMnuBarItem span, .iceMnuBarItem a:hover, .iceMnuBarVrtItem a, .iceMnuBarVrtItem span, .iceMnuBarVrtItem a:hover {
+    text-decoration: none;
+    display: block;
+    font-family:  Tahoma;
+    font-size: 10pt;
+    color:#ffffff;/*main*/
+}
+
+.iceMnuBarItem a, .iceMnuBarItem span, .iceMnuBarItem a:hover {
+    padding: 3px 6px 3px 6px;
+}
+
+.iceMnuBarVrtItem a, .iceMnuBarVrtItem span, .iceMnuBarVrtItem a:hover {
+    padding: 3px 0 3px 6px;
+}
+
+.iceMnuBarItem a, .iceMnuBarVrtItem a {
+    background-image: none;
+ 
+}
+
+.iceMnuBarItem a:hover, .iceMnuBarVrtItem a:hover {
+    background-image: none;
+}
+
+
+.iceMnuBarSubMenu, .iceMnuBarVrtSubMenu {
+   
+    background-color: #FCFCFC;
+    display: block;
+    width: 250px;
+    border: none;
+    z-index: 1000;
+    float: right;
+   
+}
+
+.iceMnuItm {
+    padding: 0;
+    margin: 0;
+    float: right;
+      width:255px;
+    vertical-align: top;
+    border: none;
+   
+}
+
+.iceMnuItm a, .iceMnuItm a:hover, .iceMnuItmVrt a, .iceMnuItmVrt a:hover {
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: block;
+    text-decoration: none;
+    text-align: right;
+    vertical-align: top;
+    line-height: 26px;
+    height: 26px;
+    width: 100%;
+padding-right: 5px;
+}
+
+.iceMnuItm a, .iceMnuItmVrt a {
+    background-image: url('/relations/mainTemplate/img/bgline2.gif');
+    color: #ffffff;
+     font-family:  Tahoma;
+     font-size: 10pt;
+    
+}
+
+.iceMnuItm a:hover, .iceMnuItmVrt a:hover {
+    background-color: #4591A1;
+    color: #4591A1;
+}
+
+.iceMnuItm a:hover .iceOutTxt, .iceMnuItmVrt a:hover .iceOutTxt {
+    color: #ffcc00;
+}
+
+.iceMnuItm a:hover .iceOutTxt, .iceMnuItmVrt a:hover .iceOutTxt, .iceMnuItm a:hover .iceMnuItmLabel {
+    color: #f64b07;
+}
+
+.iceMnuItmLabel {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 7px;
+    font-weight: normal;
+}
+
+.iceMnuItmLabel, .iceMnuBarItemLabel {
+    font-size: 9pt;
+    /*width: 100%;*/
+    vertical-align: top;
+}
+
+.iceDatTbl td span.iceMnuItmLabel {
+    display: inline;
+    padding: 0 0 0 7px;
+}
+
+.iceMnuItmImage, .iceMnuBarItemImage, .iceMnuBarVrtItemImage {
+    display: inline;
+}
+
+.iceMnuItmImage, .iceMnuItmLabel {
+    vertical-align: middle;
+}
+
+.iceMnuBarSubMenuInd {
+    float: left;
+    padding: 5px 0 0 0;
+    margin: 0;
+    
+}
+</style>
+
+      <h:form>  <p:menubar>
+              <p:menuitem style="height: 26px"    value="قائمة البرامج" id="main">
+                <c:set var="m1" value="#{loginUser.lev1}" scope="session"/>
+                <c:forEach var="m" items="${m1}">
+                    <c:set var="l1" value="${m.iceApplicationsPK.level1}"/>
+                    <p:menuitem icon="/nara/mainTemplate/img/ico2.png" id="ml1${l1}"
+                                  value="  ${m.arabicName}"
+                                  url="${m.progUrl}">
+
+                        <c:set var="m2" value="#{loginUser.lev2}" scope="session"/>
+                        <c:forEach var="mf2" items="${m2}">
+                            <c:set var="l2" value="${mf2.iceApplicationsPK.level2}"/>
+                            <c:if test="${mf2.iceApplicationsPK.level1==l1}">
+                                <p:menuitem id="ml2${mf2.iceApplicationsPK.level1}${mf2.iceApplicationsPK.level2}"
+                                              value="  ${mf2.arabicName}"
+                                              url="${mf2.progUrl}"
+                                              icon="/naraICE/mainTemplate/img/ico2.png">
+
+                                    <c:set var="m3" value="#{loginUser.lev3}" scope="session"/>
+                                    <c:forEach var="mf3" items="${m3}">
+                                        <c:set var="l3" value="${mf3.iceApplicationsPK.level3}"/>
+                                        <c:if test="${mf3.iceApplicationsPK.level1== l1 and mf3.iceApplicationsPK.level2 == l2}">
+                                            <p:menuitem id="ml3${mf3.iceApplicationsPK.level1}${mf3.iceApplicationsPK.level2}${mf3.iceApplicationsPK.level3}"
+                                                          value="  ${mf3.arabicName}"
+                                                          url="${mf3.progUrl}"
+                                                          icon="/nara/mainTemplate/img/ico2.png">
+
+                                                <c:set var="m4" value="#{loginUser.lev4}" scope="session"/>
+                                                <c:forEach var="mf4" items="${m4}">
+                                                    <c:set var="l4" value="${mf4.iceApplicationsPK.level4}"/>
+                                                    <c:if test="${mf4.iceApplicationsPK.level1==l1 and mf4.iceApplicationsPK.level2==l2 and mf4.iceApplicationsPK.level3==l3}">
+                                                        <p:menuitem id="ml4${mf4.iceApplicationsPK.level1}${mf4.iceApplicationsPK.level2}${mf4.iceApplicationsPK.level3}${mf4.iceApplicationsPK.level4}"
+                                                                      value="  ${mf4.arabicName}"
+                                                                      url="${mf4.progUrl}"
+                                                                      icon="/nara/mainTemplate/img/ico2.png">
+
+                                                            <c:set var="m5" value="#{loginUser.lev5}" scope="session"/>
+                                                            <c:forEach var="mf5" items="${m5}">
+                                                                <c:set var="l5" value="${mf5.iceApplicationsPK.level5}"/>
+                                                                <c:if test="${mf5.iceApplicationsPK.level1==l1 and mf5.iceApplicationsPK.level2==l2 and mf5.iceApplicationsPK.level3==l3 and mf5.iceApplicationsPK.level4==l4}">
+                                                                    <p:menuitem id="ml5${mf5.iceApplicationsPK.level1}${mf5.iceApplicationsPK.level2}${mf5.iceApplicationsPK.level3}${mf5.iceApplicationsPK.level4}${mf5.iceApplicationsPK.level5}"
+                                                                                  value="  ${mf5.arabicName}"
+                                                                                  url=${mf5.progUrl}"
+                                                                                  icon="/nara/mainTemplate/img/ico2.png">
+
+                                                                    </p:menuitem>
+                                                                </c:if>
+                                                            </c:forEach>
+
+                                                        </p:menuitem>
+                                                    </c:if>
+                                                </c:forEach>
+                                            </p:menuitem>
+                                        </c:if>
+                                    </c:forEach>
+                                </p:menuitem>
+                            </c:if>
+                        </c:forEach>
+                    </ice:menuItem>
+                </c:forEach>
+            </p:menuitem>
+        </p:menubar>
+    </ice:form>
+</html>

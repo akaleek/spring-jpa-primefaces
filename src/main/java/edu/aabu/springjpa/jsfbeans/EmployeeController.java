@@ -18,7 +18,7 @@ import javax.faces.bean.SessionScoped;
  *
  * @author heba
  */
-@ManagedBean()
+@ManagedBean(name = "empCont")
 @SessionScoped
 public class EmployeeController implements Serializable{
 

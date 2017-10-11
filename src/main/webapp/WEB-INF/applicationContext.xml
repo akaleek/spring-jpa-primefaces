@@ -35,7 +35,7 @@
     <context:component-scan base-package="edu.aabu.springjpa.contoller,edu.aabu.springjpa.service"/>
     <context:annotation-config />
 
-    <jee:jndi-lookup jndi-name="jdbc/admdb" id="admdb"/>
+    <jee:jndi-lookup jndi-name="jdbc/employee" id="employee"/>
     <!-- Necessary to get the entity manager injected into the factory bean -->
     <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />	
     <jpa:repositories base-package="edu.aabu.springjpa.repository" />
@@ -49,15 +49,14 @@
     <!-- Entity Manager Factory -->
     <bean id="entityManagerFactory"
           class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-        <property name="dataSource" ref="admdb"/>
+        <property name="dataSource" ref="employee"/>
         <property name="packagesToScan" value="edu.aabu.springjpa.model" />
         <property name="loadTimeWeaver">
             <bean class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver"/>
         </property>
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-<!--                <property name="generateDdl" value="true" />-->
-<!--                <property name="hibernate.format_sql" value="true" />-->
+                <property name="generateDdl" value="true" />
                 <property name="showSql" value="true" />
                 <property name="databasePlatform"
                           value="org.hibernate.dialect.PostgreSQL9Dialect" />

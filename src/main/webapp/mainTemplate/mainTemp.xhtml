@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="rtl" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title><ui:insert name="title">بوابة الموظفين</ui:insert></title>
+        <META HTTP-EQUIV="Pragma" CONTENT="no-cache"/>
+        <META HTTP-EQUIV="Expires" CONTENT="-1"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"/>
+        <h:outputStylesheet library="css" name="Site.css"/>
+        <script type="text/javascript" src="/nara/menudhtml/stmenu.js"/>
+
+        
+        <script type="text/javascript" LANGUAGE="JavaScript" charset="utf-8">
+            function displayHTML(pg) {
+                var widh = screen.width - 300;
+                var hi = screen.height - 200;
+                var left = (screen.width - widh) / 2;
+                var top = (screen.height - hi) / 2;
+
+                win = window.open(pg, 'popup', 'toolbar = no, status = no,width=' + widh + ', height=' + hi + ',scrollbars=yes, top=' + top + ', left=' + left);
+
+
+            }
+            function doPopup(pg) {
+                var widh = screen.width - 300;
+                var hi = screen.height - 200;
+                var left = (screen.width - widh) / 2;
+                var top = (screen.height - hi) / 2;
+
+                win = window.open(pg, 'popup', 'toolbar = no, status = no,width=' + widh + ', height=' + hi + ',scrollbars=yes, top=' + top + ', left=' + left);
+
+
+            }
+        </script>
+    </h:head>
+    <h:body>
+        <p:growl id="growl" life="3000" />
+    <div id="wrapper">
+        <div id="headerwrap">
+            <div id="header">
+                <div id="rightimage">
+                    <p:graphicImage alt="header" library="images" name="hh2.png"/>
+                </div>
+                <div id="leftcontent">
+                    <a href="/nara/logOut.jsp?logout=true">
+                        <div class="logout">
+                            <strong style="text-align: center;position: relative;top: -23px;">logout</strong>
+                            <p:graphicImage alt="header" library="images" name="log.png"/>
+                        </div>
+                    </a>
+                    <div class="UserName">
+                        اسم المستخدم:
+                    </div>
+                    <div class="date">
+                        التــاريـخ :
+                        <p:outputLabel value="------">
+<!--                            <f:convertDateTime pattern="d-M-yyyy" />-->
+                        </p:outputLabel>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="navigationwrap">
+            <div id="navigation">
+                <div class="datacontentright">
+                    <h:outputText value="----" escape="false" />
+                </div>
+                <a href="">
+                    <div class="datacontent">
+                        <p:graphicImage alt="header" 
+                                    library="images" name="newemail.png" height="20"
+                                    width="36"/>
+                        <p style="width: 50%;float: left;margin-top: 0;position: relative;left: 32%;color: #FFF">يوجد لديك 10 رسائل</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div id="contentliquid">
+            <div id="contentwrap">
+                <div id="content">
+                    <ui:insert name="content">
+                    <p>المحتوى </p>
+                    </ui:insert>
+                </div>
+            </div>
+        </div>
+        <div id="footerwrap">
+            <div id="footer">
+                <p:graphicImage alt="header" library="images" name="ff2.png"/>
+            </div>
+        </div>
+    </div>
+</h:body>
+</html>

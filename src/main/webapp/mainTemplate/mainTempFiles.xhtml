@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+
+        <META HTTP-EQUIV="Pragma" CONTENT="no-cache"/>
+        <META HTTP-EQUIV="Expires" CONTENT="-1"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <h:outputStylesheet name="../resources/bootstrap/css/bootstrap.min.css"/>
+        <h:outputStylesheet name="../resources/css/bootstrap-rtl.min.css"/>
+        <h:outputStylesheet name="../resources/css/bootstrap-responsive.min.css"/>
+        <h:outputScript name="../js/jquery-3.1.1.min.js" />
+        <h:outputScript name="../resources/bootstrap/bootstrap.min.js" />
+        <title><ui:insert name="title">بوابة الموظفين</ui:insert></title>
+        <link href="#{resource['/images/favicon.ico']}" rel="shortcut icon" type="/images/favicon.ico" />
+    </h:head>
+    <h:body>
+        <ui:insert name="headerNara">
+            <ui:include src="/mainTemplate/mainTemp2.xhtml" />
+        </ui:insert>
+        <ui:insert name="body" />
+    </h:body>
+</html>

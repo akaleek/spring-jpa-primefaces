@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CountryViewDlg" widgetVar="CountryViewDialog" 
+			modal="true" resizable="false" 
+			appendTo="@(body)" header="CountryViewTitle">
+            <h:form id="CountryViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{countryJsfController.selected != null}">
+                        <h:outputText value="id"/>
+                        <h:outputText value="#{countryJsfController.selected.id}" title="country_id"/>
+                        <h:outputText value="countryname"/>
+                        <h:outputText value="#{countryJsfController.selected.countryName}" title="country_countryname"/>
+                        <h:outputText value="population"/>
+                        <h:outputText value="#{countryJsfController.selected.population}" title="country_population"/>
+                    </p:panelGrid>
+                    <p:commandButton value="Close" onclick="CountryViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

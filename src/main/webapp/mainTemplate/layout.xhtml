@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="rtl" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title><ui:insert name="title">بوابة الموظفين</ui:insert></title>
+        <META HTTP-EQUIV="Pragma" CONTENT="no-cache"/>
+        <META HTTP-EQUIV="Expires" CONTENT="-1"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"/>
+        <link href="Content/Site.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="/relations/mainTemplate/stylesheet.css"  />
+        <h:outputStylesheet library="css" name="pfcrud.css"/>
+        <h:outputStylesheet library="css" name="Site.css"/>
+        <h:outputScript library="scripts" name="pfcrud.js"/>
+        
+        <script type="text/javascript" LANGUAGE="JavaScript" charset="utf-8">
+            function displayHTML(pg) {
+                var widh = screen.width - 300;
+                var hi = screen.height - 200;
+                var left = (screen.width - widh) / 2;
+                var top = (screen.height - hi) / 2;
+
+                win = window.open(pg, 'popup', 'toolbar = no, status = no,width=' + widh + ', height=' + hi + ',scrollbars=yes, top=' + top + ', left=' + left);
+
+
+            }
+            function doPopup(pg) {
+                var widh = screen.width - 300;
+                var hi = screen.height - 200;
+                var left = (screen.width - widh) / 2;
+                var top = (screen.height - hi) / 2;
+
+                win = window.open(pg, 'popup', 'toolbar = no, status = no,width=' + widh + ', height=' + hi + ',scrollbars=yes, top=' + top + ', left=' + left);
+
+
+            }
+        </script>
+    </h:head>
+    <h:body>
+        <p:growl id="growl" life="3000" />
+        <div class="wrapperc">
+            <div class="allcontent">
+                <div class="headerc">
+                    <ui:insert name="header"><ui:include src="header.xhtml"/></ui:insert>
+                </div>
+
+                <div class="menuc">
+                    <ui:insert name="menu"><ui:include src="menuscript.xhtml"/></ui:insert>
+
+                </div>
+                <div class="conttc" >
+                    <br/>
+                    <div style="text-align: center; width: 100%">
+                        <h:outputText styleClass="mainTitle">
+                            <ui:insert name="title">بوابة الموظفين</ui:insert>
+                        </h:outputText>
+                    </div>
+
+                    <br/>
+                    <ui:insert name='content'></ui:insert>
+                    <br/>
+
+                </div>
+                <div class="fotc">
+                    <div style="float: left; position: relative; direction: ltr; margin-left: 20px;padding-top: 5px">
+                        <h:outputText style="font-size: 11px !important; color: #deeeed !important; text-align: left">
+                            © Al al-Bayt University, P.O.BOX 130040<br/>
+                            Mafraq 25113, Jordan + 962-2-6297000<br/>
+                            e-mail:  info@aabu.edu.jo
+                        </h:outputText>
+                    </div>
+
+                    <div style="float: right; position: relative; direction: ltr; margin:0px;padding: 0px">
+                        <h:graphicImage url="/mainTemplate/img/fotdec.png"/>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>

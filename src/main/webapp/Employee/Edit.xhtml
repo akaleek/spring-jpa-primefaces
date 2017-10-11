@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EmployeeEditDlg" widgetVar="EmployeeEditDialog" modal="true" resizable="false" appendTo="@(body)" header="EditEmployee">
+            <h:form id="EmployeeEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{employeeController.selected != null}">
+                        <p:outputLabel value="empId" for="empId" />
+                        	<p:inputText id="empId" value="#{employeeController.selected.empId}" title="empIdTitle" 
+								required="true" requiredMessage="required filed"/>
+                        <p:outputLabel value="empHireDate" for="empHireDate" />
+                        	<p:inputText id="empHireDate" value="#{employeeController.selected.empHireDate}" title="empHireDateTitle" 
+								required="true" requiredMessage="required filed"/>
+                        <p:outputLabel value="empName" for="empName" />
+                        	<p:inputText id="empName" value="#{employeeController.selected.empName}" title="empNameTitle" 
+								required="true" requiredMessage="required filed"/>
+                        <p:outputLabel value="empSalary" for="empSalary" />
+                        	<p:inputText id="empSalary" value="#{employeeController.selected.empSalary}" title="empSalaryTitle" 
+								required="true" requiredMessage="required filed"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{employeeController.update}" value="Save" 
+						update="display,:EmployeeListForm:datalist,:growl" oncomplete="handleSubmit(args,'EmployeeEditDialog');"/>
+                    <p:commandButton value="Cancel" onclick="EmployeeEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+    </ui:composition>
+</html>

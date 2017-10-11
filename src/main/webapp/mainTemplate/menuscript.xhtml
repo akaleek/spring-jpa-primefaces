@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!--
+    Document   : menuscript
+    Created on : Jul 15, 2012, 7:03:23 PM
+    Author     : Fatema
+-->
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'
+      xmlns:c='http://java.sun.com/jsp/jstl/core'
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <script type='text/javascript' src='${facesContext.externalContext.requestContextPath}/mainTemplate/menudhtml/stmenu.js'></script>
+    <f:metadata >
+        <f:event type="preRenderView" listener="#{loginUser.load2}"/>
+    </f:metadata>
+    <div style='height:26px;overflow:hidden;z-index: 500'>
+        <h:outputText value="#{loginUser.renderMenu}" escape="false" />
+    </div>
+
+</html>
