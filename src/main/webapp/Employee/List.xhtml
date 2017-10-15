@@ -13,10 +13,10 @@
         <ui:define name="content">
                 <h:form id="EmployeeListForm">
                     <p:panel header="Employee data management">
-                        <p:dataTable id="datalist" value="#{employeeController.items}" var="item"
-                            selectionMode="single" selection="#{employeeController.selected}"
+                        <p:dataTable id="datalist" value="#{empCont.employees}" var="item"
+                            selectionMode="single" selection="#{empCont.selected}"
                             paginator="true"
-                            rowKey="#{item.empId}_"
+                            rowKey="#{item.employeeId}_"
                             rows="10"
                             rowsPerPageTemplate="10,20,30,40,50"
                             >
@@ -27,25 +27,25 @@
                                 <f:facet name="header">
                                     <h:outputText value="empId"/>
                                 </f:facet>
-                                	<h:outputText value="#{item.empId}"/>
+                                <h:outputText value="#{item.employeeId}"/>
                             </p:column>
                             <p:column>
                                 <f:facet name="header">
                                     <h:outputText value="empHireDate"/>
                                 </f:facet>
-                                	<h:outputText value="#{item.empHireDate}"/>
+                                <h:outputText value="#{item.employeeHireDate}"/>
                             </p:column>
                             <p:column>
                                 <f:facet name="header">
                                     <h:outputText value="empName"/>
                                 </f:facet>
-                                	<h:outputText value="#{item.empName}"/>
+                                <h:outputText value="#{item.employeeName}"/>
                             </p:column>
                             <p:column>
                                 <f:facet name="header">
                                     <h:outputText value="empSalary"/>
                                 </f:facet>
-                                	<h:outputText value="#{item.empSalary}"/>
+                                <h:outputText value="#{item.employeeSalary}"/>
                             </p:column>
 
                             <f:facet name="footer">

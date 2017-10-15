@@ -11,21 +11,21 @@
 				resizable="false" appendTo="@(body)" header=" CreateEmployeeTitle">
             <h:form id="EmployeeCreateForm">
                 <h:panelGroup id="display">
-                    <p:panelGrid columns="2" rendered="#{ employeeController.selected != null}">
+                    <p:panelGrid columns="2" rendered="#{ empCont.selected != null}">
                         <p:outputLabel value="empId" for="empId" />
-                        	<p:inputText id="empId" value="#{employeeController.selected.empId}" title="empIdTitle" 
+                        <p:inputText id="empId" value="#{empCont.selected.employeeId}" title="empIdTitle" 
 								required="true" requiredMessage="required filed"/>
                         <p:outputLabel value="empHireDate" for="empHireDate" />
-                        	<p:calendar id="empHireDate" pattern="dd/MM/yyyy" value="#{employeeController.selected.empHireDate}" title="empHireDateTitle" 
+                        <p:calendar id="empHireDate" pattern="dd/MM/yyyy" value="#{empCont.selected.employeeHireDate}" title="empHireDateTitle" 
 								required="true" requiredMessage="required filed" showOn="button"/>
                         <p:outputLabel value="empName" for="empName" />
-                        	<p:inputText id="empName" value="#{employeeController.selected.empName}" title="empNameTitle" 
+                        <p:inputText id="empName" value="#{empCont.selected.employeeName}" title="empNameTitle" 
 								required="true" requiredMessage="required filed"/>
                         <p:outputLabel value="empSalary" for="empSalary" />
-                        	<p:inputText id="empSalary" value="#{employeeController.selected.empSalary}" title="empSalaryTitle" 
+                        <p:inputText id="empSalary" value="#{empCont.selected.employeeSalary}" title="empSalaryTitle" 
 								required="true" requiredMessage="required filed"/>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{employeeController.create}" value="save" 
+                    <p:commandButton actionListener="#{empCont.create}" value="save" 
 						update="display,:EmployeeListForm:datalist,:growl" oncomplete="handleSubmit(args,'EmployeeCreateDialog');"/>
                     <p:commandButton value="Cancel" onclick="EmployeeCreateDialog.hide()"/>
                 </h:panelGroup>

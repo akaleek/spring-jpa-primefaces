@@ -32,11 +32,11 @@
                     if ($scope.countryForm.id == -1) {
                         //Id is absent in form data, it is create new country operation
                         method = "POST";
-                        url = '/springjpa/sp/addCountry';
+                        url = '/springjpa/sp/insertCountry';
                     } else {
                         //Id is present in form data, it is edit country operation
                         method = "PUT";
-                        url = '/springjpa/sp/addCountry';
+                        url = '/springjpa/sp/updCountry';
                     }
          
                     $http({
@@ -52,8 +52,8 @@
                 //HTTP DELETE- delete country by Id
                 $scope.deleteCountry = function(country) {
                     $http({
-                        method : 'GET',
-                        url : '/springjpa/deleteCountry/' + country.id
+                        method : 'DELETE',
+                        url : '/springjpa/sp/delCountry/' + country.id
                     }).then(_success, _error);
                 };
  

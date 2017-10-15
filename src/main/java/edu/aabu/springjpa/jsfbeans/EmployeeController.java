@@ -26,6 +26,7 @@ public class EmployeeController implements Serializable{
     @ManagedProperty("#{employeeService}")
     private EmployeeService employeeService;
     private List<Employee> employees;
+    private Employee selected;
 
     public EmployeeController() {
     }
@@ -71,6 +72,14 @@ public class EmployeeController implements Serializable{
     public void setEmployeeService(EmployeeService employeeService) {
         System.out.println("setting employeeService is called isNull -------------->" + (employeeService == null));
         this.employeeService = employeeService;
+    }
+
+    public Employee getSelected() {
+        return selected;
+    }
+
+    public void setSelected(Employee selected) {
+        this.selected = selected;
     }
 
 }

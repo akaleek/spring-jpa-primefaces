@@ -58,4 +58,13 @@ public class CountryService {
  public void deleteCountry(int id) {
   countryRepository.delete(id);
  }
+
+    public CountryRepository getCountryRepository() {
+        return countryRepository;
+    }
+
+    public void setCountryRepository(CountryRepository countryRepository) {
+        this.countryRepository = countryRepository;
+    }
+ 
 }

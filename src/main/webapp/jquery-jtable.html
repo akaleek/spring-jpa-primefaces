@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+        <script src="jtable.2.4.0/jquery.jtable.min.js" type="text/javascript" charset="utf-8"></script>
+        <link href="jtable.2.4.0/themes/metro/blue/jtable.min.css" rel="stylesheet" type="text/css" />        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $.extend(true, $.hik.jtable.prototype.options.messages, {
+                    serverCommunicationError: 'حدث خطأ عند محاولة الاتصال بالخادم(السيرفر).',
+                    loadingMessage: 'جاري التحميل...',
+                    noDataAvailable: 'لا يوجد بيانات!',
+                    addNewRecord: 'أضف سجل جديد',
+                    editRecord: 'تعديل سجل',
+                    areYouSure: 'هل أنت متأكد?',
+                    deleteConfirmation: 'هذا السجل سوف يتم حذفه. هل أنت متأكد?',
+                    save: 'احفظ',
+                    saving: 'حفظ',
+                    cancel: 'إلغاء',
+                    deleteText: 'احذف',
+                    deleting: 'حذف',
+                    error: 'خطأ',
+                    close: 'أغلق',
+                    cannotLoadOptionsFor: 'لا يمكن تحميل الخيارات للحقل {0}',
+                    pagingInfo: 'إظهار {0}-{1} من {2}',
+                    pageSizeChangeLabel: 'عدد الصفوف',
+                    gotoPageLabel: 'اذهب إلى صفحة',
+                    canNotDeletedRecords: 'لا يمكن حذف {0} من {1} بيانات!',
+                    deleteProggress: 'حذف {0} من {1} بيانات, جاري الحذف...'
+                });
+
+                $('#PersonTableContainer').jtable(
+                        {
+                            title: 'countries',
+                            actions: {
+                                listAction: '/springjpa/sp/countries',
+                                createAction: '/springjpa/sp/insertCountry',
+                                updateAction: '/springjpa/sp/updCountry',
+                                deleteAction: '/springjpa/sp/delCountry/'
+                            },
+                            fields: {
+ 
+                                countryName: {
+                                    title: 'اسم الدولة',
+                                    width: '30%',
+                                    edit: true
+                                },
+                                population: {
+                                    title: 'عدد السكان ',
+                                    width: '30%',
+                                    edit: true
+                                }
+                            }
+                        });
+                $('#PersonTableContainer').jtable('load');
+            });
+        </script>
+    </head>
+    <body>
+        <div style="width:60%;margin-right:20%;margin-left:20%;text-align:center;direction: rtl;">
+            <div id="PersonTableContainer" style="direction: rtl;" dir="rtl"></div>
+        </div>
+    </body>
+</html>

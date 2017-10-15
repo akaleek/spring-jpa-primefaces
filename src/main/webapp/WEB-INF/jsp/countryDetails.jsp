@@ -70,8 +70,8 @@
                         <td>${country.id}</td>
                         <td>${country.countryName}</td>
                         <td>${country.population}</td>
-                        <td><a href="<c:url value='/updateCountry/${country.id}' />" >Edit</a></td>
-                        <td><a href="<c:url value='/deleteCountry/${country.id}' />" >Delete</a></td>
+                        <td><a href="<c:url value='/sp/updateCountry/${country.id}' />" >Edit</a></td>
+                        <td><a href="<c:url value='/sp/deleteCountry/${country.id}' />" >Delete</a></td>
                     </tr>
                 </c:forEach>
             </table>
